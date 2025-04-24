@@ -1,7 +1,6 @@
-import { test } from 'node:test';
-import { getTreeOfOrderBy, OrderType } from "./order-by";
-import * as assert from "node:assert";
-
+import { test } from 'node:test'
+import * as assert from 'node:assert'
+import { getTreeOfOrderBy, OrderType } from './order-by'
 
 test('Tree. Complex object in array', () => {
   const expression = 'extension.$$find(item.url == "createdAt" && (item.some == 5 || item.lolo == "soso")).valueDateTime'
@@ -10,36 +9,36 @@ test('Tree. Complex object in array', () => {
 
   assert.deepEqual(parsedBody, {
     operator: 'take',
-    args: {
+    args:     {
       fieldName: 'valueDateTime',
-      from: {
+      from:      {
         operator: 'find',
-        args: {
+        args:     {
           criteria: {
             operator: 'and',
-            args: [
+            args:     [
               {
                 operator: 'eq',
-                args: {
+                args:     {
                   fieldName: 'url',
-                  value: 'createdAt'
+                  value:     'createdAt'
                 }
               },
               {
                 operator: 'or',
-                args: [
+                args:     [
                   {
                     operator: 'eq',
-                    args: {
+                    args:     {
                       fieldName: 'some',
-                      value: 5
+                      value:     5
                     }
                   },
                   {
                     operator: 'eq',
-                    args: {
+                    args:     {
                       fieldName: 'lolo',
-                      value: 'soso'
+                      value:     'soso'
                     }
                   }
                 ]
@@ -48,7 +47,7 @@ test('Tree. Complex object in array', () => {
           },
           from: {
             operator: 'take',
-            args: {
+            args:     {
               fieldName: 'extension'
             }
           }

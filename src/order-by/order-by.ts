@@ -1,10 +1,10 @@
-import {OrderByTree} from "./tree";
+import { OrderByTree } from './tree'
 
 export enum OrderType {
   ASC = 'ASC',
-  DESC = 'DESC',
+  DESC = 'DESC'
 }
 
-export function getTreeOfOrderBy(expression: string, order: OrderType): OrderByTree {
-  throw new Error('Not implemented');
+export function getTreeOfOrderBy(_expression: string, _order: OrderType): OrderByTree {
+  throw new Error('Not implemented')
 }
